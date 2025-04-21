@@ -15,7 +15,7 @@ if __name__ == '__main__':
     ckpt_path = os.path.join(os.path.dirname(script_dir), 'model_zoo/Release', 'wild_camera_all.pth')
     model.load_state_dict(torch.load(ckpt_path, map_location="cpu"), strict=True)
 
-    images_folder = os.path.join(project_dir, 'asset', 'images-from-github-wt-intrinsic')
+    images_folder = os.path.join(project_dir, 'data', 'images-from-github-wt-intrinsic')
     info_path = os.path.join(images_folder, 'intrinsic_gt.txt')
     with open(info_path) as file:
         infos = [line.rstrip() for line in file]

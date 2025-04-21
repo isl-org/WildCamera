@@ -14,7 +14,7 @@ def main():
 
     script_dir = os.path.dirname(os.path.realpath(__file__))
     ckpt_path = os.path.join(os.path.dirname(script_dir), 'model_zoo/Release', 'wild_camera_all.pth')
-    model.load_state_dict(torch.load(ckpt_path, map_location="cpu"), strict=True)
+    model.load_state_dict(torch.load(ckpt_path, map_location="cpu", weights_only=True), strict=True)
 
     img_folder = os.path.join(project_root, 'asset', 'image_restoration')
     img_names = [
@@ -28,6 +28,6 @@ def main():
         export_root = os.path.join(img_folder, '{}_restored.jpg'.format(img_name.split('.')[0]))
         intrinsic, _ = model.inference(img, wtassumption=False)
         model.restore_image(img, intrinsic).save(export_root)
-
+        print(f"Restored image is saved at {export_root}")
 if __name__ == '__main__':
     main()
