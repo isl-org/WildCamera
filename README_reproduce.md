@@ -37,7 +37,7 @@ Correct linking by going to the WildCamera code directory, then call:
 ln -s /export/share/projects/videogen/data/wildcamera data
 ```
 
-# Install additional dependencies. mmcv will take a while.
+# Install additional dependencies. mmcv will take a while. mmcv is needed for inference.py, natsort is needed for dollyzoom, 
 ```
 pip install -U openmim
 mim install mmcv
